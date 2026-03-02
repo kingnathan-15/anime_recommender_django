@@ -1,0 +1,23 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Anime Select Page</title>
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    </head>
+    <body>
+        <h1>Anime Search</h1>
+        <form action="{% url 'search_bar' %}" method="get">
+            <input name="q" type="text" placeholder="Search...">
+        </form>
+        
+        <ul>
+            {%for anime in results%}
+            <li><a href="{%url 'details' anime.id%}">{{anime.name}}</a></li>
+            <script>
+                console.log("Anime ID: {{anime.name}}");
+            </script>
+            {%endfor%}
+        </ul>
+    </body>
+</html>
